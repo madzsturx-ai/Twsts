@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Channel Reaction Dashboard</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <button id="menuToggle" class="menu-btn" aria-label="Buka menu">☰</button>
+  <div class="brand"><strong>Channel Reaction</strong><small>Simple dashboard</small></div>
+  <span class="status-pill"><i></i> Online</span>
+</header>
+<nav id="sideMenu" class="side-menu" aria-hidden="true">
+  <button id="menuClose" class="menu-close">×</button>
+  <strong>Menu</strong>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#reaction">Reaction</a>
+  <a href="#process">Process</a>
+</nav>
+<main id="dashboard">
+<section class="stats-grid">
+ <article class="stat-card"><span>DAILY</span><b id="daily">12</b><em>runs left</em></article>
+ <article class="stat-card"><span>BONUS</span><b>+25</b><em>credits</em></article>
+ <article class="stat-card"><span>TICKET</span><b id="ticket">08</b><em>available</em></article>
+ <article class="stat-card dark"><span>SESSION</span><b id="timer">00:00</b><em>active time</em></article>
+</section>
+<section class="intro">
+  <p class="eyebrow">REACTION TOOL</p>
+  <h1>React with less clutter.</h1>
+  <p class="muted">Masukkan link channel, pilih emoji, lalu jalankan proses.</p>
+</section>
+<section class="workspace">
+ <div id="reaction" class="panel main-panel">
+  <div class="panel-heading"><div><p class="eyebrow">TARGET</p><h2>Channel</h2></div></div>
+  <label for="channel">WhatsApp Channel URL</label>
+  <input id="channel" type="url" placeholder="https://whatsapp.com/channel/..." />
+  <p class="hint">Masukkan URL WhatsApp Channel yang ingin diproses.</p>
+  <div class="divider"></div>
+  <div class="panel-heading compact"><div><p class="eyebrow">EMOJI</p><h2>Pilih emoji</h2></div></div>
+  <div class="emoji-grid" id="emojiGrid"></div>
+  <label for="manual">Tambahkan emoji</label>
+  <input id="manual" maxlength="24" placeholder="Contoh: 👍,😁,🗿" />
+  <div id="emojiPreview" class="emoji-preview" aria-live="polite">Emoji terpilih akan tampil di sini</div>
+  <button id="execute" class="primary-btn" aria-label="Mulai proses"><span class="fingerprint" aria-hidden="true">
+<svg viewBox="0 0 64 64" role="img" aria-label="Sidik jari">
+  <path d="M32 8C18 8 9 19 9 32"/>
+  <path d="M32 8C46 8 55 19 55 32"/>
+  <path d="M17 32C17 23 23 16 32 16C41 16 47 23 47 32"/>
+  <path d="M24 32C24 27 27 23 32 23C37 23 40 27 40 32C40 46 35 53 30 58"/>
+  <path d="M32 31C32 43 29 49 24 55"/>
+  <path d="M40 34C40 43 38 49 34 55"/>
+  <path d="M16 40C13 35 13 29 15 24"/>
+  <path d="M48 40C51 35 51 29 49 24"/>
+  <path d="M20 47C17 43 16 39 16 35"/>
+  <path d="M44 47C47 43 48 39 48 35"/>
+  <path d="M27 32C27 29 29 27 32 27C35 27 37 29 37 32C37 38 36 42 33 47"/>
+</svg></span><span class="button-label">Mulai proses</span></button>
+  <p id="notice" class="disclaimer">API key tetap tersimpan di server.</p>
+ </div>
+ <aside id="process" class="panel process-panel">
+  <div class="panel-heading"><div><p class="eyebrow">STATUS</p><h2>Proses</h2></div><span class="live-dot">●</span></div>
+  <div class="process-state" id="processState">Menunggu permintaan</div>
+  <div class="progress-wrap"><div class="progress-label"><span>Progress</span><b id="progressText">0%</b></div><div class="progress"><i id="progressBar"></i></div></div>
+  <div id="resultSummary" class="result-summary">Belum ada proses dijalankan.</div>
+  <button id="reset" class="secondary-btn">Reset ↺</button>
+ </aside>
+</section>
+</main>
+<footer>Clean interface · Responsive dashboard</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
